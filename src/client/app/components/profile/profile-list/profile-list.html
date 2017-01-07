@@ -1,0 +1,38 @@
+<div class="ui main container">
+  <h1 class="ui header dividing" ng-bind="::$ctrl.title | lowercase"></h1>
+  <div class="row">
+    <div class="ui grid">
+      <div class="wide column">
+        <div class="ui three cards">
+            <div class="ui profile card" ng-repeat="user in $ctrl.list">
+                <div class="content">
+                    <img class="right floated mini ui image" ng-src="{{user.image}}">
+                    <div class="header" ng-bind="user.username">
+                    </div>
+                    <div class="meta" ng-bind="user.email">
+                    </div>
+                    <div class="extra content">
+                        <div class="ui two buttons">
+                            <div class="ui basic green button" ui-sref="app.profile({ username: user.username })">View</div>
+                            <div class="ui basic red button">Follow</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ui active inverted dimmer" ng-hide="!$ctrl.loading">
+    <div class="ui text loader">Loading profiles...</div>
+</div>
+
+<br/>
+
+<pagination-dir
+  page-size="$ctrl.listConfig.pageSize"
+  current-page="$ctrl.listConfig.currentPage"
+  ng-hide="$ctrl.listConfig.pageSize <= 1">
+</pagination-dir> 

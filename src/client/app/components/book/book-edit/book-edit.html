@@ -1,0 +1,80 @@
+<div class="ui main container">
+  <h1 class="ui dividing header" ng-bind="::$ctrl.title | lowercase"></h1>
+  <div class="row">
+    <div class="ui grid">
+      <div class="ten wide column">
+        <error-list errors="$ctrl.errors"></error-list>
+        <div class="ui form">
+            <div class="row" ng-disabled="$ctrl.isSubmitting">
+            <div class="field disabled">
+                <label>Book Picture</label>
+                <div class="ui left input">
+                <input type="text" ng-model="$ctrl.book.image" placeholder="Book image">
+                </div>
+            </div>
+            <div class="field">
+                <label>Title</label>
+                <div class="ui left input">
+                <input type="text" ng-model="$ctrl.book.title" placeholder="Book title">
+                </div>
+            </div>
+            <div class="field">
+                <label>Author(s)</label>
+                <div class="ui left input">
+                  <input type="text" ng-keyup="$event.keyCode == 13 && $ctrl.addAuthor()" ng-model="$ctrl.author" placeholder="Author(s)">
+                </div>
+                <br/>
+                <div class="author-list">
+                    <button class="mini ui button" ng-repeat="author in $ctrl.book.authorList">
+                        <i class="remove icon" ng-click="$ctrl.removeAuthor(author)"></i>
+                        {{ author }}
+                    </button>
+                </div>
+            </div>
+            <div class="field">
+                <label>Publisher</label>
+                <div class="ui left input">
+                <input type="text" ng-model="$ctrl.book.publisher" placeholder="Published by">
+                </div>
+            </div>
+            <div class="field">
+                <label>About</label>
+                <div class="ui left input">
+                  <textarea ng-model="$ctrl.book.about"  placeholder="About the book"></textarea>
+                </div>
+            </div>
+            <div class="field">
+                <label>Publication Date</label>
+                <div class="ui left input">
+                  <input type="text" ng-model="$ctrl.book.publicationDate" placeholder="Publication Date">
+                </div>
+            </div>
+            <div class="field">
+                <label>Categories</label>
+                <div class="ui left input">
+                  <input type="text" ng-keyup="$event.keyCode == 13 && $ctrl.addCategory()" ng-model="$ctrl.category" placeholder="Categories">
+                </div>
+                <br/>
+                <div class="category-list">
+                    <button class="mini ui button" ng-repeat="category in $ctrl.book.categoryList">
+                        <i class="remove icon" ng-click="$ctrl.removeCategory(category)"></i>
+                        {{ category }}
+                    </button>
+                </div>
+            </div>
+            <div class="field">
+                <label>Pages</label>
+                <div class="ui left input">
+	<input type="text" ng-model="$ctrl.book.pages" placeholder="Number of pages">
+                </div>
+            </div>
+            
+            <button class="ui button blue" ng-click="$ctrl.submitForm()">Save</button>
+        </div>
+      </div>
+    </div>
+    <div class="six wide column">
+        <file-upload book="$ctrl.book" image="$ctrl.book.image"></file-upload>
+    </div>
+  </div>
+</div>  

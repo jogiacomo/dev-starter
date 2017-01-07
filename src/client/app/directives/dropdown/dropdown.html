@@ -1,0 +1,38 @@
+<div class="ui pointing dropdown link item profile" ng-show="{{isProfile}}" ng-click="dropdown('profile')" show-authed="true">
+    <div class="text">
+       <!-- <img class="ui avatar image" ng-src="{{currentUser.image}}">  -->
+        {{currentUser.username}}
+    </div>
+    <i class="dropdown icon"></i>
+    <div class="menu">
+        <div class="item" ui-sref-active="active"
+        ui-sref="app.profile({ username: $ctrl.user.username })">
+        Profile
+        </div>
+        <div class="item" ui-sref-active="active"
+            ui-sref="app.settings">
+        {{ 'HEADER.SETTINGS' | translate }}
+        </div>
+        <div class="item" ng-click="$ctrl.logout()">
+        {{ 'NAV.LOGOUT' | translate }}
+        </div>
+    </div>
+</div>
+
+<div class="ui pointing dropdown link item flag" show-authed="true" ng-click="dropdown('flag')" ng-show="{{isLanguage}}">
+    <div class="text">
+    <i class="us flag"></i>EN
+    </div>
+    <i class="dropdown icon"></i>
+    <div class="menu" ng-click="$ctrl.changeLanguage()">
+        <div class="item  en-EN">
+            <i class="us flag"></i>
+            EN
+        </div>
+        <div class="item fr-FR">
+            <i class="fr flag"></i>
+            FR
+        </div>
+    </div>
+</div>
+

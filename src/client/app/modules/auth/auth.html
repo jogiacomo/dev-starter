@@ -1,0 +1,61 @@
+<div class="ui main text container">
+  <h1 class="ui header" ng-bind="::$ctrl.title | lowercase"></h1>
+  <div class="ui center one column middle aligned very relaxed stackable grid">
+    <div class="column">
+      <p class="flow-text center-align">
+          <a ui-sref="app.login"
+            ng-show="$ctrl.authType === 'register'">
+            Have an account?
+          </a>
+          <a ui-sref="app.register"
+            ng-show="$ctrl.authType === 'login'">
+            Need an account?
+          </a>
+        </p>
+        <error-list errors="$ctrl.errors"></error-list>
+      <div class="ui form">
+        <div class="row" ng-disabled="$ctrl.isSubmitting">
+          <div class="field" ng-show="$ctrl.authType === 'register'">
+            <label>Username</label>
+            <div class="ui left icon input">
+              <input type="text" ng-model="$ctrl.formData.username" placeholder="Username">
+              <i class="user icon"></i>
+            </div>
+          </div>
+          <div class="field">
+            <label>Username</label>
+            <div class="ui left icon input">
+              <input type="email" ng-model="$ctrl.formData.email" placeholder="Email">
+              <i class="mail icon"></i>
+            </div>
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <div class="ui left icon input">
+              <input type="password" ng-model="$ctrl.formData.password"  placeholder="Password">
+              <i class="lock icon"></i>
+            </div>
+          </div>
+          <div class="ui blue submit fluid button" ng-bind="$ctrl.title" ng-click="$ctrl.submitForm()"></div>
+        </div>
+      </div>
+      <div class="ui horizontal divider">
+        Or
+      </div>
+      <div class="two ui buttons">
+        <button class="ui facebook button">
+          <i class="facebook icon"></i>
+          Facebook
+        </button>
+        <button class="ui google plus button">
+          <i class="google plus icon"></i>
+          Google Plus
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+<div class="ui active inverted dimmer" ng-hide="!$ctrl.loading">
+    <div class="ui text loader">Loading...</div>
+</div>

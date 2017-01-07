@@ -1,0 +1,20 @@
+<br/>
+<img class="file-uploaded ui medium bordered image" ng-show="hasImg" style="width:200px;height:225px;" ng-src="{{image}}">
+<div class="drop-box" ng-hide="hasImg">
+  Select & click 'Upload' to upload
+</div>
+<div id="upload_div">
+</div>
+<br/>
+<div class="uploaded-message ui progress success">
+  <div class="label">Successfully uploaded!</div>
+  <br/>
+</div>
+
+<div id="upload-data-profile">
+  <input type="file" id="fileElem" multiple accept="image/*" style="display:none" onchange="angular.element(this).scope().fileChanged(this)">
+  <label for="file" id="fileSelect" class="ui icon button" ng-click="select()">Select</label>
+  <label for="file" id="fileUpload" class="ui icon button disabled" ng-click="uploadPicture()">Upload</label>
+  <label for="file" id="fileCancel" class="ui icon button disabled" ng-click="cancelUpload()">Cancel</label>
+  <div id="fileList"></div>
+</div>

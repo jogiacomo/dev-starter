@@ -1,0 +1,72 @@
+<div class="ui stackable container menu">
+  
+  <div class="header item"
+       ui-sref="app.home"
+       ng-bind="::$ctrl.appName | lowercase">
+  </div>
+
+  <div class="right menu">
+    <div class="item">
+      <div class="ui icon input">
+        <input type="text" placeholder="Search...">
+        <i class="search link icon"></i>
+      </div>
+    </div>
+
+    <div class="item" show-authed="false">
+      <a class="ui button"
+         ui-sref-active="active"
+         ui-sref="app.login">
+         {{ 'NAV.SIGNIN' | translate }}
+      </a>
+    </div>
+
+    <div class="item" show-authed="false">
+      <a class="ui button"
+         ui-sref-active="active"
+         ui-sref="app.register">
+         {{ 'NAV.SIGNUP' | translate }}
+      </a>
+    </div>
+
+    <a class="item" show-authed="true"
+       ui-sref-active="active"
+       ui-sref="app.article-new">
+       {{ 'NAV.ARTICLENEW' | translate }}
+    </a>
+
+    
+    <a class="item" show-authed="true"
+        ui-sref-active="active"
+        ui-sref="app.profile({ username: $ctrl.user.username })">
+        <img class="ui avatar image" ng-src="{{$ctrl.user.image}}">
+        <i class="at icon"></i>
+        {{ $ctrl.user.username }}
+    </a>
+
+    <div class="ui pointing dropdown link item flag" ng-click="$ctrl.dropdown()">
+      <div class="text" ng-show="$ctrl.isEN">
+        <i class="us flag"></i>EN
+      </div>
+      <div class="text" ng-show="$ctrl.isFR">
+        <i class="fr flag"></i>FR
+      </div>
+      <i class="dropdown icon"></i>
+      <div class="menu" ng-click="$ctrl.changeLanguage()">
+        <div class="item  en-EN">
+          <i class="us flag"></i>
+          EN
+        </div>
+        <div class="item fr-FR">
+          <i class="fr flag"></i>
+          FR
+        </div>
+      </div>
+    </div>
+
+    <a class="ui item" ng-click="$ctrl.logout()" show-authed="true">
+      Logout
+    </a>
+
+  </div>
+</div>

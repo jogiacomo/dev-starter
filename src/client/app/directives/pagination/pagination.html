@@ -1,0 +1,7 @@
+<div class="ui pagination menu">
+  <a class="item" ng-class="{active: pageNumber === currentPage }"
+      ng-repeat="pageNumber in pageRange(pageSize)"
+      ng-click="changePage(pageNumber)">
+    {{pageNumber}}
+  </a>
+</div>

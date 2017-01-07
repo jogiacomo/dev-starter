@@ -1,0 +1,57 @@
+<div class="ui main container">
+  <div class="ui header dividing">
+    <a  ui-sref="app.artist-new"><h1 ng-bind="::$ctrl.title | lowercase"></h1></a>
+  </div>
+  
+  <div class="row">
+    <div class="ui grid">
+      <div class="wide column">
+          <div class="ui three cards">
+            <div class="ui card" ng-repeat="book in $ctrl.list">
+                <div class="extra content">
+                    <like-btn book="book" is-liked="book.isLiked" button-list="true"></like-btn>
+                    <favorite-btn book="book" is-favorite="book.isFavorite"></favorite-btn>
+                </div>
+                <div class="content">
+                    <div class="header">
+                        <img ng-src="{{book.image}}" class="ui avatar right spaced image">
+                        {{book.title}}
+                    </div>
+                    <div class="meta">
+                        <span ng-repeat="author in book.authorList">{{author}}</span>
+                    </div>
+                    <div class="extra">
+                        {{book.publisher}}, {{book.publicationDate}}, {{book.pages}} pages
+                        <p ng-repeat="category in book.categoryList">{{category}}</p>
+                    </div>
+                </div>
+                <div class="ui three bottom attached buttons">
+                    <div class="ui button" ui-sref="app.book-view({ bookId: book._id.$oid })">
+                        View
+                    </div>
+                    <div class="ui button" ui-sref="app.book-edit({ bookId: book._id.$oid })">
+                        Edit
+                    </div>
+                    <div class="ui button">
+                        Delete
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ui active inverted dimmer" ng-hide="!$ctrl.loading">
+    <div class="ui text loader">Loading books...</div>
+</div>
+
+<br/>
+
+<pagination-dir
+  page-size="$ctrl.listConfig.pageSize"
+  current-page="$ctrl.listConfig.currentPage"
+  ng-hide="$ctrl.listConfig.pageSize <= 1">
+</pagination-dir>

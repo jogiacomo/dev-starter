@@ -1,0 +1,17 @@
+<div class="ui labeled button" tabindex="0" ng-show="{{buttonView}}">
+  <div class="ui button" ng-click="like()" ng-show="{{!isLiked}}">
+    <i class="heart icon"></i> Like
+  </div>
+  <div class="ui red button" ng-click="unlike()" ng-show="{{isLiked}}">
+    <i class="heart icon"></i> Liking
+  </div>
+  <span class="ui basic label counter">
+    {{counter}}
+  </span>
+</div>
+
+<span class="left floated star" ng-show="{{buttonList}}">
+    <i class="like icon" ng-click="like()" ng-show="{{!isLiked}}"></i>
+    <i class="like icon active" ng-click="unlike()" ng-show="{{isLiked}}"></i>
+    Like
+</span>

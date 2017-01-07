@@ -1,0 +1,22 @@
+<button class="ui button follow-profile"
+        ng-class="{ 'disabled': submitting,
+    '': !followed,
+    'teal': followed }" 
+    ng-click="submit()"
+    ng-hide="{{logged || buttonarticle}}">
+    <i class="at icon"></i>
+    {{ followed ? 'Unfollow' : 'Follow' }}
+</button>
+
+<button class="ui button follow-article"
+        ng-class="{ 'disabled': submitting,
+    '': !article.isFollowed,
+    'teal': article.isFollowed }" 
+    ng-click="submit()"
+    ng-hide="{{logged || buttonprofile}}">
+    <i class="at icon"></i>
+    {{ article.isFollowed ? 'Unfollow' : 'Follow' }}
+</button>
+
+<button class="ui button" ng-hide>Follow</button>
+<button class="ui button active" ng-hide >Following</button>

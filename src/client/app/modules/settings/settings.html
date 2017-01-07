@@ -1,0 +1,74 @@
+<div class="ui main text container">
+  <h1 class="ui header" ng-bind="::$ctrl.title | lowercase"></h1>
+  <div class="row">
+    <div class="ui grid">
+      <div class="ten wide column">
+        <error-list errors="$ctrl.errors"></error-list>
+        <div class="ui form">
+          <div class="row" ng-disabled="$ctrl.isSubmitting">
+            <div class="field disabled">
+              <label>Profile Picture</label>
+              <div class="ui left icon input">
+                <input type="text" ng-model="$ctrl.formData.image" placeholder="URL of profile picture">
+                <i class="user icon"></i>
+              </div>
+            </div>
+            <div class="field">
+              <label>Username</label>
+              <div class="ui left icon input">
+                <input type="text" ng-model="$ctrl.formData.username" placeholder="Username">
+                <i class="user icon"></i>
+              </div>
+            </div>
+            <div class="field">
+              <label>Bio</label>
+              <div class="ui left icon input">
+                <textarea ng-model="$ctrl.formData.bio" placeholder="Short bio about you"></textarea>
+              </div>
+            </div>
+            <div class="field">
+              <label>Email</label>
+              <div class="ui left icon input">
+                <input type="email" ng-model="$ctrl.formData.email" placeholder="Email">
+                <i class="mail icon"></i>
+              </div>
+            </div>
+            <div class="two fields">
+              <div class="field">
+                <label>Country</label>
+                <div class="ui left icon input">
+                  <input type="text" ng-model="$ctrl.formData.country" placeholder="Country">
+                  <i class="user icon"></i>
+                </div>
+              </div>
+              <div class="field">
+                <label>Zip/Postal Code</label>
+                <div class="ui left icon input">
+                  <input type="text" ng-model="$ctrl.formData.zip" placeholder="Zip/Postal Code">
+                  <i class="user icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label>City</label>
+              <div class="ui left icon input">
+                <input type="text" ng-model="$ctrl.formData.city" placeholder="City">
+                <i class="user icon"></i>
+              </div>
+            </div>
+            <div class="ui blue fluid submit button" ng-click="$ctrl.submitForm()">Update settings</div>
+          </div>       
+        </div>
+        <div class="ui horizontal divider">
+          Or
+        </div>
+        <button class="ui fluid button" ng-click="$ctrl.logout()">
+          click here to logout.
+        </button>
+      </div>
+      <div class="six wide column upload">
+        <file-upload image="$ctrl.formData.image"></file-upload>
+      </div>
+    </div>
+  </div>
+</div>  

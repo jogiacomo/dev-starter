@@ -1,0 +1,106 @@
+<div class="ui main container">
+  <div class="ui header dividing">
+    <a  ui-sref="app.artist-new"><h1 ng-bind="::$ctrl.title | lowercase"></h1></a>
+  </div>
+  
+  <div class="row">
+    <div class="ui grid">
+      <div class="wide column">
+          <div class="large ui buttons">
+            <button class="ui button" ng-click="$ctrl.select(this)">&@</button>
+            <button class="ui button" ng-repeat="char in $ctrl.chars" ng-click="$ctrl.select(this)">{{char}}</button>
+          </div>
+          <div class="large ui buttons">
+            <button class="ui button" ng-repeat="_char in $ctrl._chars" ng-click="$ctrl._select(this)">{{_char}}</button>
+          </div>
+
+          <div class="ui center aligned basic segment">
+            <div class="ui left icon action input">
+                Select a Letter
+            </div>
+            <div class="ui horizontal divider">
+                Or
+            </div>
+            <div class="ui teal labeled icon">
+                Research Immediately
+            </div>
+            <br />
+            <div class="ui left icon action input">
+              <i class="search icon"></i>
+              <input type="text" ng-model="$ctrl.searchData" placeholder="Search Book...">
+              <div class="ui blue submit button" ng-click="$ctrl.search()">Search</div>
+            </div>
+          </div>
+
+          <div class="ui center aligned basic segment">
+            <div class="ui left icon action input" ng-show="!$ctrl.isAuthor">
+                Authors List
+            </div>
+            <div class="ui left icon action input" ng-show="$ctrl.isAuthor">
+                Author Books
+            </div>
+            <div class="ui horizontal divider">
+                <a class="ui green circular label" ng-show=$ctrl.all>&@</a>
+                <a class="ui green circular label" ng-show="$ctrl.isChar">{{$ctrl.val}}</a>
+                <a class="ui green circular label" ng-show="$ctrl._isChar">{{$ctrl._val}}</a>
+                <a class="ui green label" ng-show="$ctrl.isAuthor">{{$ctrl.slug}}</a>
+            </div>
+            <div class="ui horizontal list" ng-show="!$ctrl.isAuthor">
+              <div class="item" ng-repeat="author in $ctrl.list">
+                <div class="content">
+                  <a class="header" ui-sref="app.book-search" ng-click="$ctrl.getAuthor(this)">{{author}}</a>
+                </div>
+              </div>
+            </div>
+            <div class="ui horizontal list" ng-show="$ctrl.notFound">
+              <div class="item">
+                <div class="content">
+                  <div class="header">Authors not found</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="ui divided items" ng-show="$ctrl.isAuthor">
+            <div class="item" ng-repeat="book in $ctrl.books">
+                <div class="image">
+                <img ng-src="{{book.image}}">
+                </div>
+                <div class="content">
+                  <div class="content">
+                    <div class="header">
+                      {{book.title}}
+                    </div>
+                    <div class="meta">
+                        <span class="book">{{book.publisher}},</span>
+                        <span class="book">{{book.publicationDate}},</span>
+                        <span class="book">{{book.pages}} pages</span>
+                    </div>
+                    <div class="description">
+                        {{book.about}}
+                    </div>
+                    <div class="extra">
+                        <div class="ui right floated primary button" ui-sref="app.book-view({ bookId: book._id.$oid })">
+                            View Details
+                            <i class="right chevron icon"></i>
+                        </div>
+                        <div class="ui right floated primary button" ui-sref="app.book-edit({ bookId: book._id.$oid })">
+                            Edit
+                            <i class="right chevron icon"></i>
+                        </div>
+                        <div class="ui label" ng-repeat="author in $ctrl.book.authorList">{{author}}</div>
+                        <div class="ui label" ng-repeat="category in $ctrl.book.categoryList"><i class="globe icon"></i>{{category}}</div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ui active inverted dimmer" ng-hide="!$ctrl.loading">
+    <div class="ui text loader">Loading authors...</div>
+</div>

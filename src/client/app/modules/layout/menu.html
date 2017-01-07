@@ -1,0 +1,82 @@
+<div class="ui vertical menu">
+  <div class="item"  show-authed="true">
+    <div class="header">
+      {{ 'HEADER.DASHBOARD' | translate }}
+    </div>
+    <div class="menu">
+      <a class="item" ui-sref-active="active"
+          ui-sref="app.dashboard">View</a>
+    </div>
+  </div>
+  <div class="item">
+    <div class="header">{{ 'HEADER.CAR_SHARING' | translate }}</div>
+    <div class="menu">
+      <a class="item" ui-sref-active="active" 
+          ui-sref="app.announcement-search">Search Announcements</a>
+      <a class="item" ui-sref-active="active" 
+          ui-sref="app.announcement-list">Announcements</a>
+      <a class="item" ui-sref-active="active"
+          ui-sref="app.announcement-new">New Announcement</a>
+    </div>
+  </div>
+  <div class="item">
+    <div class="header">{{ 'HEADER.CONTACT_MANAGEMENT' | translate }}</div>
+    <div class="menu">
+      <a class="item" ui-sref-active="active" 
+          ui-sref="app.contact-list">Contacts</a>
+      <a class="item" ui-sref-active="active"
+          ui-sref="app.contact-new">New Contact</a>
+    </div>
+  </div>
+  <div class="item">
+    <div class="header">{{ 'HEADER.MUSIC_ALBUM_MANAGEMENT' | translate }}</div>
+    <div class="menu">
+      <a class="item" ui-sref-active="active" 
+          ui-sref="app.artist-list">Artists</a>
+      <a class="item" ui-sref-active="active"
+          ui-sref="app.artist-new">New Artist</a>
+    </div>
+  </div>
+  <div class="item">
+    <div class="header">{{ 'HEADER.LIBRARY' | translate }}</div>
+    <div class="menu">
+      <a class="item" ui-sref-active="active" 
+          ui-sref="app.book-search">Search Books</a>
+      <a class="item" ui-sref-active="active" 
+          ui-sref="app.book-list">Books</a>
+      <a class="item" ui-sref-active="active"
+          ui-sref="app.book-new">New Book</a>
+    </div>
+  </div>
+  <div class="item">
+    <div class="header">{{ 'HEADER.ARTICLES' | translate }}</div>
+    <div class="menu">
+      <a class="item" ui-sref-active="active" 
+          ui-sref="app.article-list">Articles</a>
+      <a class="item" ui-sref-active="active"
+          ui-sref="app.article-new">New Article</a>
+    </div>
+  </div>
+  <div class="item">
+    <div class="header">
+      {{ 'HEADER.PROFILES' | translate }}
+    </div>
+    <div class="menu">
+      <a class="item" ui-sref-active="active" 
+          ui-sref="app.profile-list">
+        All Profiles
+      </a>
+    </div>
+  </div>
+  <div class="item"  show-authed="true">
+    <div class="header">
+      {{ 'HEADER.SETTINGS' | translate }}
+    </div>
+    <div class="menu">
+      <a class="item" ui-sref-active="active" 
+          ui-sref="app.settings">
+        Edit Profile
+      </a>
+    </div>
+  </div>
+</div>
