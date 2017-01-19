@@ -12,7 +12,6 @@ import 'angular-nvd3';
 import 'angular-filter';
 import 'angular-animate';
 import 'angular-sanitize';
-import './ion-affix';
 
 let commonModule = angular.module('app.common', [
   'ui.router',
@@ -26,7 +25,6 @@ let commonModule = angular.module('app.common', [
   'ngAnimate',
   'ngSanitize',
   'angular.filter',
-  'ion-affix',
   'toaster'
 ]);
 
