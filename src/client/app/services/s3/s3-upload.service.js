@@ -2,7 +2,6 @@ export default class S3Upload {
     constructor ($q, Base64) {
       'ngInject';
       this._$q = $q;
-      this._Base64 = Base64;
       // Us standard region
       AWS.config.region = 'us-west-2';
       AWS.config.update({ accessKeyId: '', secretAccessKey: '' });
