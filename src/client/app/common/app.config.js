@@ -1,6 +1,6 @@
 import authInterceptor from './auth.interceptor'
 
-function AppConfig($logProvider, cfpLoadingBarProvider, toastrConfig, $httpProvider, $stateProvider, $locationProvider, $urlRouterProvider, $ionicConfigProvider) {
+function AppConfig($logProvider, cfpLoadingBarProvider, toastrConfig, $httpProvider, $stateProvider, $locationProvider, $urlRouterProvider) {
   'ngInject';
 
   // Enable log
@@ -18,11 +18,6 @@ function AppConfig($logProvider, cfpLoadingBarProvider, toastrConfig, $httpProvi
   //cfpLoadingBarProvider.includeSpinner = false;
 
   $httpProvider.interceptors.push(authInterceptor);
-
-  $ionicConfigProvider.backButton.icon('ion-android-arrow-back');
-  $ionicConfigProvider.backButton.text('');
-  $ionicConfigProvider.spinner.icon('dots');
-  $ionicConfigProvider.navBar.alignTitle('left');
 
   $stateProvider
   .state('app', {
