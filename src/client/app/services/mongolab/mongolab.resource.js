@@ -1,3 +1,5 @@
+//Resource need to be tested
+
 export default class MongoLabResource {
     constructor($http, $q, AppConstants) {
       'ngInject';
