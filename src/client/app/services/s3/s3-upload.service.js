@@ -5,14 +5,14 @@ export default class S3Upload {
       this._Base64 = Base64;
       // Us standard region
       AWS.config.region = 'us-west-2';
-      AWS.config.update({ accessKeyId: 'AKIAIGD2RZWUFZMLTJYA', secretAccessKey: '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' });
-      this.bucket = new AWS.S3({ params: { Bucket: 'g2skit.com', maxRetries: 10 }, httpOptions: { timeout: 360000 } });
+      AWS.config.update({ accessKeyId: '', secretAccessKey: '' });
+      this.bucket = new AWS.S3({ params: { Bucket: '', maxRetries: 10 }, httpOptions: { timeout: 360000 } });
       this.progress = 0;
     }
 
     upload (file) {
       let deferred = this._$q.defer();
-      let params = { Bucket: 'g2skit.com', ACL: 'public-read', Key: file.name, ContentType: file.type, Body: file };
+      let params = { Bucket: '', ACL: 'public-read', Key: file.name, ContentType: file.type, Body: file };
       let options = {
           // Part Size of 10mb
           partSize: 10 * 1024 * 1024,
