@@ -1,15 +1,15 @@
 const AppConstants = {
-  api: 'https://api.mlab.com/api/1/databases/',
+  api: 'api_url',
   MONGOLAB_CONFIG: {
-    API_KEY:'zd-e9-XFv8mB5neQWveNdlSQ43Cv_QRT',
-    DB_NAME:'starter-kit'
+    API_KEY:'',
+    DB_NAME:''
   },
-  keyStr: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',
-  jwtKey: 'jwtToken',
+  keyStr: '',
+  jwtKey: '',
   toastr: 'toastr',
   moment: 'moment',
   undercore: 'underscore',
-  appName: 'Starter-Kit',
+  appName: 'appName',
 };
 
 export default AppConstants;
