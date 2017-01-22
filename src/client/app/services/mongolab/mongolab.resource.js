@@ -86,7 +86,7 @@ export default class MongoLabResource {
      * 
      */
     findAll (options) {
-      if (options === null || options === undefined) {
+      if (!options) {
         var queryString = this.getCollectionName(this.resource.collectionName);
       } else {
         let optionsMapping = Object.keys(options);
