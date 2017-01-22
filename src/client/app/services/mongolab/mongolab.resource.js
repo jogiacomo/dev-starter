@@ -139,7 +139,7 @@ export default class MongoLabResource {
      */ 
     save (fields) {
       let queryString = this.getCollectionName(this.resource.collectionName);
-      return this._$http.post(queryString, fields).then((res) => { return res; });
+      this._$http.post(queryString, fields).then((res) => { return res; });
     }
 
     /**
@@ -166,7 +166,7 @@ export default class MongoLabResource {
       } else {
         queryString =this.getCollectionName(this.resource.collectionName);
       }
-      return this._$http.put(queryString, fields).then((res) => { return res; });
+      this._$http.put(queryString, fields).then((res) => { return res; });
     }
 
     /**
@@ -175,6 +175,6 @@ export default class MongoLabResource {
      */ 
     delete (id) {
       let queryString = this.getCollectionName(this.resource.collectionName, id + '?');
-      return this._$http.delete(queryString);
+      this._$http.delete(queryString);
     }
 }
